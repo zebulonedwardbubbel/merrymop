@@ -1,0 +1,70 @@
+// =============================================================================
+// Footer
+// =============================================================================
+.footer {
+    $_this: &;
+    display: flex;
+    align-items: center;
+    padding: $spacing-unit / 2;
+
+    &__inner {
+        width: 100%;
+        max-width: map-get($breakpoints, desktop);
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        @include mq(desktop) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 ($spacing-unit * 1.5);
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        @include mq(desktop) {
+            justify-content: space-between;
+        }
+    }
+
+    &__link-item {
+        padding: $spacing-unit / 2;
+
+        @include mq(desktop) {
+            margin-bottom: 0;
+            padding: 0;
+
+            &:not(:last-child) {
+                margin-right: $spacing-unit;
+            }
+        }
+
+        a {
+            color: rgba(255,255,255,1);
+            transition: color $global-transition-duration ease;
+
+            &:hover {
+                color: rgba(255,255,255,.5);
+            }
+        }
+    }
+
+    &__copy {
+        padding: $spacing-unit / 2;
+        color: $color-primary;
+
+        @include mq(desktop) {
+            padding: 0;
+        }
+    }
+}

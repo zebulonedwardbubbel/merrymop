@@ -1,0 +1,43 @@
+// Reset
+@import 'base/reset';
+
+// Globals
+@import 'globals/variables';
+@import 'globals/mixins';
+@import 'globals/helpers';
+@import 'globals/functions';
+@import 'globals/keyframes';
+
+@import 'base/box-sizing';
+@import 'base/sticky-footer';
+@import 'base/fonts';
+@import 'base/page';
+@import 'base/body';
+@import 'base/typography';
+
+// Components
+@import 'components/button';
+@import 'components/hamburger';
+
+// Layouts
+@import 'layouts/main';
+
+// Vendors
+//@import 'vendors/';
+
+main {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+
+    &:hover {
+        outline: 1px dashed red;
+    }
+}
+h2 {
+    text-align: center;
+}

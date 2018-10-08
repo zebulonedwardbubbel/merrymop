@@ -1,0 +1,16 @@
+// =============================================================================
+// Fonts
+// =============================================================================
+
+@for $i from 1 through length($font-names) {
+    $weight: nth($font-weights, $i);
+    $name: nth($font-names, $i);
+
+    @font-face {
+        font-family: 'SourceSansPro';
+        src: url('#{$font-basepath}/SourceSansPro/SourceSansPro-#{$name}/SourceSansPro-#{$name}.woff2') format('woff2'),
+             url('#{$font-basepath}/SourceSansPro/SourceSansPro-#{$name}/SourceSansPro-#{$name}.woff') format('woff');
+        font-weight: #{$weight};
+        font-style: normal;
+    }
+}

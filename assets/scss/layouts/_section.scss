@@ -1,0 +1,102 @@
+.section {
+    $this: &;
+
+    max-width: map-get($breakpoints, desktop);
+    margin-left: $spacing-unit / 3;
+    margin-right: $spacing-unit / 3;
+    padding-top: $spacing-unit;
+    padding-right: $spacing-unit / 2;
+    padding-bottom: $spacing-unit;
+    padding-left: $spacing-unit / 2;
+
+    @include mq(desktop) {
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: $spacing-unit * 1.75;
+        padding-right: $spacing-unit * 1.5;
+        padding-bottom: $spacing-unit * 2;
+        padding-left: $spacing-unit * 1.5;
+    }
+
+    // block-level children of flex displayed elements are supposed to occupy the full width of the parent,
+    // but IE11 needs an explicit request
+    // https://stackoverflow.com/questions/35111090/why-ie11-doesnt-wrap-the-text-in-flexbox#35113633
+    & > *,
+    &__inner > * {
+        width: 100%;
+    }
+    // but buttons should have auto width on desktop screens
+    & > .button,
+    &__inner > .button {
+
+        @include mq(desktop) {
+            width: auto;
+        }
+    }
+
+    // the inner area of a .section--framed block
+    &__inner {
+        width: 100%;
+        padding: ($spacing-unit * 1.25) ($spacing-unit * 1.25) ($spacing-unit * 1.5);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border: 1px solid $color-border;
+        border-radius: $global-radius;
+    }
+
+    &--framed {
+        padding-top: $spacing-unit * 1.5;
+        padding-right: $spacing-unit;
+        padding-bottom: $spacing-unit * 1.5;
+        padding-left: $spacing-unit;
+
+        @include mq(desktop) {
+            background-color: #fff;
+            padding: $spacing-unit * 2;
+        }
+    }
+
+    &--light-gray {
+        background-color: $bg-color-body;
+    }
+
+    &--white {
+        background-color: #fff;
+    }
+
+    &--narrower {
+
+        @include mq(desktop) {
+            padding-left: $spacing-unit * 4.5;
+            padding-right: $spacing-unit * 4.5;
+        }
+    }
+
+    &--narrow {
+
+        @include mq(desktop) {
+            padding-left: $spacing-unit * 7;
+            padding-right: $spacing-unit * 7;
+        }
+    }
+
+    &--short {
+
+        @include mq(desktop) {
+            padding-top: $spacing-unit;
+            padding-bottom: 0;
+        }
+    }
+
+    &--mb-0 {
+
+        @include mq(desktop) {
+            padding-bottom: 0;
+        }
+    }
+
+    &:last-of-type {
+        margin-bottom: $spacing-unit * 1.5;
+    }
+}
