@@ -3,11 +3,12 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'merrymop',
+    title: 'Competitive cleaning services in Copenhagen',
+    titleTemplate: '%s | Merry Mop',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'merrymop - a nuxt site' }
+      { hid: 'description', name: 'description', content: 'A humble team of Copenhagen based cleaning professionals' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

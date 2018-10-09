@@ -5,19 +5,28 @@
       <h2>Elérhetőségek, meg egy jó kis email form lesz itt</h2>
     </main>
     <div class="c-page-transition">
-        <canvas class="js-canvas"></canvas>
+        <canvas class="c-page-transition__canvas" ref="canvas"></canvas>
     </div>
   </div>
 </template>
 
 <script>
 import { TimelineLite, TweenLite, Power3 } from 'gsap';
-import getHypotenuse from '~/assets/js/get-hypotenuse'
+import getHypotenuse from '~/assets/js/get-hypotenuse';
 
 export default {
+    head() {
+        return {
+            title: 'Contacts',
+            meta: [
+                { hid: 'description', name: 'description', content: 'Get in touch with our professional cleaning team in Copenhagen | hello@merrymop.dk' }
+            ]
+        }
+    },
     created() {},
     mounted() {
         window.addEventListener('mousemove', this.setCenter, false);
+        this.$el.canvas = this.$refs.canvas;
     },
     methods: {
         setCenter: function(event) {
@@ -36,19 +45,19 @@ export default {
             const tl = new TimelineLite({
                 onComplete: done
             });
-            tl.to('h1', 1, {
+            tl.to('h1', .75, {
                 autoAlpha: 1,
                 y: 0
             });
-            tl.to('h2', 1, {
+            tl.to('h2', .75, {
                 autoAlpha: 1,
                 y: 0
-            }, '-=0.75');
+            }, '-=0.25');
         },
         beforeLeave(el) {},
         leave(el, done) {
             console.log('leaving contacts!');
-            const $canvas = document.querySelector('.js-canvas');
+            const $canvas = this.$el.canvas;
             const $ctx = $canvas.getContext('2d');
             const $width = $canvas.width = window.innerWidth;
             const $height = $canvas.height = window.innerHeight;
@@ -62,12 +71,13 @@ export default {
             };
 
             function drawCircle() {
+                // circle #1
                 $ctx.beginPath();
                 $ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
                 $ctx.fillStyle = '#fff';
                 $ctx.fill();
                 $ctx.closePath();
-
+                // circle #2
                 $ctx.beginPath();
                 $ctx.arc(this.x, this.y, this.radius2, 0, 2 * Math.PI);
                 $ctx.fillStyle = this.circleColor2;
@@ -96,35 +106,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-    .c-page-transition {
-        height: 100vh;
-        width: 100vw;
-        top: 0;
-        left: 0;
-        position: fixed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: none;
-        visibility: visible;
-        z-index: 10;
-        opacity: 1;
-        transition: opacity 0s ease-out, visibility 0s ease-out;
-
-        &.is-end {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1.2s ease-out, visibility 1.2s ease-out;
-        }
-    }
-
-    .js-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
-</style>
+<style lang="scss"></style>

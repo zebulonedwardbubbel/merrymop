@@ -21,7 +21,7 @@
         </li>
       </ul>
     </nav>
-    <canvas class="nav__canvas"></canvas>
+    <canvas class="nav__canvas" ref="navCanvas"></canvas>
   </div>
 </template>
 <script>
@@ -37,9 +37,9 @@ export default {
         navToggle: function() {
             const $navToggle = this.$refs.navToggle;
             const $navToggleRect = $navToggle.getBoundingClientRect();
-            const x = $navToggleRect.left + 36;
-            const y = $navToggleRect.bottom - 20;
-            const $canvas = document.querySelector('.nav__canvas');
+            const x = $navToggleRect.left + 18;
+            const y = $navToggleRect.bottom - 18;
+            const $canvas = this.$refs.navCanvas;
             const $ctx = $canvas.getContext('2d');
             const $width = ($canvas.width = window.innerWidth);
             const $height = ($canvas.height = window.innerHeight);
@@ -152,8 +152,8 @@ export default {
     transform: translateZ(0);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1),
-                visibility 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: opacity .6s cubic-bezier(0.23, 1, 0.32, 1),
+                visibility .6s cubic-bezier(0.23, 1, 0.32, 1);
 
     .is-active & {
       opacity: 1;
@@ -162,8 +162,8 @@ export default {
     }
 
     .is-animated & {
-      transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-        visibility 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      // transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+      //   visibility 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
   }
 
