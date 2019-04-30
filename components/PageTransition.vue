@@ -1,13 +1,20 @@
 <template>
-    <div class="c-page-transition">
-        <canvas class="js-canvas"></canvas>
-    </div>
+    <transition>
+        <div class="c-page-transition">
+            <canvas class="js-canvas"></canvas>
+        </div>
+    </transition>
 </template>
 
 <script>
 import { TweenLite, TimelineLite, Power3 } from 'gsap';
 
 export default {
+    computed: {
+        page() {
+            return this.$store.state.page
+        }
+    },
     created() {},
     mounted() {
         window.addEventListener('mousemove', this.setCenter, false);
@@ -42,7 +49,7 @@ export default {
     beforeLeave(el) {},
     leave(el, done) {
         console.log('leaving index!');
-        const $canvas = document.querySelector('.js-canvas');
+        const $canvas = this.$el.canvas;
         const $ctx = $canvas.getContext('2d');
         const $width = $canvas.width = window.innerWidth;
         const $height = $canvas.height = window.innerHeight;
@@ -134,11 +141,11 @@ export default {
         opacity: 1;
         transition: opacity 0s ease-out, visibility 0s ease-out;
 
-        &.is-end {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1.2s ease-out, visibility 1.2s ease-out;
-        }
+        // &.is-end {
+        //     opacity: 0;
+        //     visibility: hidden;
+        //     transition: opacity 1.2s ease-out, visibility 1.2s ease-out;
+        // }
     }
 
     .js-canvas {
