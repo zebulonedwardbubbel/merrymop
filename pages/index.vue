@@ -2,8 +2,10 @@
 <template>
   <div>
     <main>
-      <h1>Helloka!</h1>
-      <h2>Itt lesz majd a Merry Mop oldal ;)</h2>
+      <h1 class="visually-hidden">Home page of Merry Mop, a small cleaning service provider in Copenhagen</h1>
+      <section class="c-section">
+        <h2 class="c-section__title">Merry Mop represents a small team of experienced cleaning professionals operating in Copenhagen.<br>We decided to stand out in the crowded cleaning market through delivering decent services.</h2>
+      </section>
     </main>
     <div class="c-page-transition">
         <canvas class="c-page-transition__canvas" ref="canvas"></canvas>
@@ -51,7 +53,7 @@ export default {
         beforeLeave(el) {},
         leave(el, done) {
             console.log('leaving index!');
-            const $canvas = document.querySelector('.js-canvas');
+            const $canvas = this.$el.canvas;
             const $ctx = $canvas.getContext('2d');
             const $width = $canvas.width = window.innerWidth;
             const $height = $canvas.height = window.innerHeight;
@@ -99,9 +101,6 @@ export default {
 </script>
 
 <style scoped>
-  body {
-    background-color: #03a9f4!important;
-  }
 </style>
 
 <style lang="scss"></style>

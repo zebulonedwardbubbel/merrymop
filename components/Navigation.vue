@@ -2,8 +2,8 @@
   <div
     class="nav"
     v-bind:class="[isActive ? 'is-active' : '', isAnimated ? 'is-animated' : '']">
-    <button class="nav__toggle hamburger" ref="navToggle" @click="navToggle" v-bind:aria-expanded="isActive" v-bind:class="[isActive ? 'hamburger--opened' : '']">
-      <span class="hamburger__line"></span>
+    <button class="nav__toggle c-hamburger" ref="navToggle" @click="navToggle" v-bind:aria-expanded="isActive" v-bind:class="[isActive ? 'c-hamburger--opened' : '']">
+      <span class="c-hamburger__line"></span>
     </button>
     <nav class="nav__inner">
       <ul class="nav__list">
@@ -37,8 +37,8 @@ export default {
         navToggle: function() {
             const $navToggle = this.$refs.navToggle;
             const $navToggleRect = $navToggle.getBoundingClientRect();
-            const x = $navToggleRect.left + 18;
-            const y = $navToggleRect.bottom - 18;
+            const x = $navToggleRect.left + 35;
+            const y = $navToggleRect.bottom - 20;
             const $canvas = this.$refs.navCanvas;
             const $ctx = $canvas.getContext('2d');
             const $width = ($canvas.width = window.innerWidth);
@@ -169,8 +169,8 @@ export default {
 
   &__toggle {
     position: fixed;
-    top: 1rem;
-    right: 1rem;
+    top: 16px;
+    right: 16px;
     width: 40px;
     height: 40px;
     border: none;

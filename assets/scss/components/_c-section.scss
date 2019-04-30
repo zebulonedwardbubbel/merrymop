@@ -1,0 +1,13 @@
+.c-section {
+
+    &__title {
+        font-family: $secondary-font-family;
+        font-size: 56px;
+        font-weight: 600;
+        line-height: 1.1;
+        text-transform: none;
+        letter-spacing: -3.4px;
+
+        // @include mq()
+    }
+}

@@ -17,28 +17,12 @@
 
 // Components
 @import 'components/button';
-@import 'components/hamburger';
+@import 'components/c-hamburger';
 @import 'components/c-page-transition';
+@import 'components/c-section';
 
 // Layouts
 @import 'layouts/main';
 
 // Vendors
 //@import 'vendors/';
-
-main {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-}
-
-h1 {
-
-    &:hover {
-        outline: 1px dashed red;
-    }
-}
-h2 {
-    text-align: center;
-}

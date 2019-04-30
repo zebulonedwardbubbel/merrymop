@@ -61,7 +61,7 @@ export default {
         beforeLeave(el) {},
         leave(el, done) {
             console.log('leaving pricing!');
-            const $canvas = document.querySelector('.js-canvas');
+            const $canvas = this.$el.canvas;
             const $ctx = $canvas.getContext('2d');
             const $width = $canvas.width = window.innerWidth;
             const $height = $canvas.height = window.innerHeight;

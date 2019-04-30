@@ -7,9 +7,9 @@
     $name: nth($font-names, $i);
 
     @font-face {
-        font-family: 'SourceSansPro';
-        src: url('#{$font-basepath}/SourceSansPro/SourceSansPro-#{$name}/SourceSansPro-#{$name}.woff2') format('woff2'),
-             url('#{$font-basepath}/SourceSansPro/SourceSansPro-#{$name}/SourceSansPro-#{$name}.woff') format('woff');
+        font-family: 'nexa';
+        src: url('#{$font-basepath}/nexa/nexa-#{$name}/nexa-#{$name}.woff2') format('woff2'),
+             url('#{$font-basepath}/nexa/nexa-#{$name}/nexa-#{$name}.woff') format('woff');
         font-weight: #{$weight};
         font-style: normal;
     }

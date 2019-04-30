@@ -2,7 +2,6 @@
 // #STiCKY FOOTER
 // https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css
 // =============================================================================
-body,
 html {
     height: 100%;
 }
@@ -10,6 +9,7 @@ html {
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 header,
